@@ -1,9 +1,8 @@
-# chart-real-time
+# vue-crypto-trading-pair
 
-## Project setup
-```
-npm install
-```
+This project was created by VueJs and Vue-Chartjs which used Bitfinex API to get the data of buying and selling price.
+
+<img src="https://user-images.githubusercontent.com/18566658/143595416-b0fe1f16-8cba-4aa8-a1ff-430a97c18abc.png" width="600">
 
 ### Compiles and hot-reloads for development
 ```
@@ -14,21 +13,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
