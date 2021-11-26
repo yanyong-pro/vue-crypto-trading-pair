@@ -25,23 +25,6 @@ export default {
         }
     },
 
-    mounted () {
-        //  initial web socket
-        this.initialWebSocket()
-        //  initial dataset for graph
-        this.initialDataForDataSet()
-        //  initial option for graph
-        this.initialDataForOptions()
-        this.renderChart( this.datasets, this.options)
-    },
-
-    watch: {
-        'selectedPairObject.value' () {
-            //  when trading pair is changed, it will reset graph and create a new connection
-            this.updateTradingPair()
-        }
-    },
-
     methods: {
         initialDataForDataSet () {
             this.datasets = {
@@ -113,12 +96,7 @@ export default {
             }
         },
 
-        updateTradingPair () {
-            //  close connection when change web socket
-            this.webSocket.close()
-
-            //  initial everythings again because trading pair is changed
-
+        initializeForChart () {
             //  initial web socket
             this.initialWebSocket()
             //  initial dataset for graph
@@ -126,8 +104,27 @@ export default {
             //  initial option for graph
             this.initialDataForOptions()
             this.renderChart( this.datasets, this.options)
+        },
+
+        updateTradingPair () {
+            //  close connection when change web socket
+            this.webSocket.close()
+
+            //  initial everything again because trading pair is changed
+            this.initializeForChart()
         }
-    }
+    },
+
+    mounted () {
+        this.initializeForChart()
+    },
+
+    watch: {
+        'selectedPairObject.value' () {
+            //  when trading pair is changed, it will reset graph and create a new connection
+            this.updateTradingPair()
+        }
+    },
 }
 
 </script>
